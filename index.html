@@ -395,6 +395,36 @@
         .premium-footer {
             box-shadow: none;
         }
+        .bible-interact-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-right: 8px;
+        }
+        .bible-hint-icon {
+            display: none;
+        }
+        .bible-hint-text {
+            display: none;
+            color: #39FF14;
+            font-size: 1em;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 700px) {
+            .bible-hint-icon {
+                display: inline-block;
+            }
+            .bible-hint-text {
+                display: inline-block;
+            }
+        }
+        @media (min-width: 701px) {
+            .bible-hint-icon,
+            .bible-hint-text {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -626,6 +656,17 @@
                     colors="primary:#39ff14"
                     style="width:32px;height:32px;vertical-align:middle;">
                 </lord-icon>
+            </span>
+            <span class="bible-interact-hint">
+                <span class="bible-hint-icon">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/wfadduyp.json"
+                        trigger="loop"
+                        colors="primary:#39ff14"
+                        style="width:22px;height:22px;vertical-align:middle;">
+                    </lord-icon>
+                </span>
+                <span class="bible-hint-text">Click</span>
             </span>
             <strong>Isaya 58:6-11</strong><br>
             <div class="bible-content">
