@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCompany: 20-Year Masterplan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <style>
+        :root {
+            --neon-green: #39FF14;
+            --dark-bg: #121212;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(255, 255, 255, 0.2);
+            --text-color: #e0e0e0;
+        }
+        
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px var(--neon-green),
+                            0 0 10px var(--neon-green);
+            }
+            to {
+                box-shadow: 0 0 10px var(--neon-green),
+                            0 0 20px var(--neon-green);
+            }
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .neon-text {
+            color: var(--neon-green);
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--neon-green);
+            text-transform: uppercase;
+            display: block;
+        }
+        
+        .tagline {
+            font-size: 1rem;
+            color: var(--neon-green);
+            margin-top: -10px;
+        }
+        
+        .author {
+            text-align: center;
+            font-style: italic;
+            color: #888;
+            margin-bottom: 50px;
+        }
+        
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3),
+                        0 0 10px rgba(57, 255, 20, 0.4),
+                        0 0 20px rgba(57, 255, 20, 0.2);
+        }
+        
+        .masterplan {
+            margin-top: 80px;
+        }
+        
+        .masterplan-card {
+            animation-delay: calc(0.2s * var(--card-index));
+        }
+        
+        .phase-title {
+            font-size: 1.8rem;
+            color: var(--neon-green);
+        }
+        
+        .phase-subtitle {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .content li {
+            margin-bottom: 15px;
+        }
+        
+        .point-title {
+            font-weight: bold;
+            color: var(--neon-green);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .principles {
+            margin-top: 50px;
+        }
+        
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .principle-card {
+            text-align: center;
+        }
+        
+        .principle-card h3 {
+            font-size: 1.2rem;
+            color: var(--neon-green);
+            margin-bottom: 10px;
+        }
+        
+        .principle-card p {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+        
+            h1 {
+                font-size: 2rem;
+            }
+        
+            h2 {
+                font-size: 1.8rem;
+            }
+        
+            .card {
+                padding: 20px;
+            }
+        }
+        .bible-card {
+            max-width: 540px;
+            width: 100%;
+            min-width: 320px;
+            max-height: 270px;
+            overflow: hidden;
+            background: rgba(18, 18, 18, 0.85);
+            border-left: 6px solid #39FF14;
+            padding: 28px 22px 28px 36px;
+            margin: 48px auto 0 auto;
+            box-shadow: 0 8px 32px rgba(57,255,20,0.12), 0 2px 16px rgba(0,0,0,0.18), 0 0 0 1px rgba(255,255,255,0.05);
+            border-radius: 18px;
+            color: #cfd8dc;
+            font-size: 1.13em;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            text-align: justify;
+            background-clip: padding-box;
+            backdrop-filter: blur(10px) brightness(1.1);
+            /* subtle glass shimmer effect */
+            background-image:
+                linear-gradient(120deg, rgba(39,255,14,0.08) 0%, rgba(39,255,14,0.04) 100%),
+                repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 8px);
+        }
+
+        .bible-card strong {
+            color: #39FF14;
+            font-size: 1.15em;
+            letter-spacing: 1px;
+        }
+
+        .bible-icon {
+            font-size: 1.5em;
+            margin-right: 8px;
+            vertical-align: middle;
+            color: #39FF14;
+            filter: drop-shadow(0 0 4px #39FF14);
+        }
+
+        .bible-content {
+            transition: transform 0.8s cubic-bezier(.77,0,.18,1);
+            will-change: transform;
+        }
+
+        .bible-card:hover .bible-content {
+            animation: bible-scroll 22s linear forwards;
+        }
+
+        @keyframes bible-scroll {
+            from { transform: translateY(0); }
+            to { transform: translateY(-60%); }
+        }
+
+        .bible-key {
+            color: #39FF14;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 2px #39FF14;
+        }
+
+        .bible-card::-webkit-scrollbar {
+            width: 8px;
+        }
+        .bible-card::-webkit-scrollbar-track {
+            background: #222;
+            border-radius: 8px;
+        }
+        .bible-card::-webkit-scrollbar-thumb {
+            background: #39FF14;
+            border-radius: 8px;
+        }
+        .bible-card {
+            scrollbar-color: #39FF14 #222;
+            scrollbar-width: thin;
+        }
+        .premium-footer {
+            background: transparent;
+            padding: 0;
+            margin-top: 70px;
+            border: none;
+        }
+        .footer-glass {
+            width: 100%;
+            margin: 0;
+            background: rgba(18, 18, 18, 0.85);
+            border-radius: 0;
+            box-shadow: 0 8px 32px rgba(39,255,14,0.10), 0 2px 16px rgba(0,0,0,0.18);
+            border: 0;
+            border-top: 4px solid #39FF14;
+            border-image: linear-gradient(90deg, #39FF14 0%, #00eaff 50%, #ff2fd6 100%) 1;
+            backdrop-filter: blur(12px) brightness(1.08);
+            padding: 38px 0 22px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            min-height: 0;
+            /* Remove any min-height or set to 0 for compactness */
+        }
+        .footer-content,
+        .footer-brand,
+        .footer-social,
+        .footer-links {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .footer-logo {
+            font-size: 2.2em;
+            font-weight: 800;
+            color: #39FF14;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px #39FF1444;
+        }
+        .footer-tagline {
+            font-size: 1.1em;
+            color: #00eaff;
+            margin-top: 6px;
+            letter-spacing: 1px;
+            font-weight: 500;
+            margin-left: 12px;
+        }
+        .footer-social {
+            gap: 28px;
+            margin: 18px 0 0 0;
+        }
+        .footer-icon lord-icon {
+            vertical-align: middle;
+            transition: transform 0.2s;
+            filter: drop-shadow(0 0 6px #39FF1455);
+        }
+        .footer-icon:hover lord-icon {
+            transform: scale(1.22);
+            filter: drop-shadow(0 0 12px #39FF14);
+        }
+        .footer-links {
+            gap: 28px;
+            margin: 18px 0 0 0;
+        }
+        .footer-hashtag {
+            color: #39FF14;
+            font-weight: 700;
+            font-size: 1.08em;
+            letter-spacing: 1px;
+            padding: 2px 10px;
+            border-radius: 8px;
+            background: rgba(39,255,14,0.12);
+            user-select: text;
+            cursor: default;
+            /* Remove hover effect */
+            transition: none;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 1.05em;
+            color: #b2ffb2;
+            letter-spacing: 1px;
+            opacity: 0.85;
+            font-weight: 500;
+            width: 100%;
+        }
+        @media (max-width: 700px) {
+            .footer-glass {
+                padding: 28px 0 18px 0;
+                gap: 18px;
+            }
+            .footer-links {
+                gap: 16px;
+            }
+            .footer-social {
+                gap: 16px;
+            }
+            .footer-logo {
+                font-size: 1.5em;
+            }
+        }
+        .premium-footer {
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <span class="logo">DCompany</span>
+            <p class="tagline">IT Solutions</p>
+        </div>
+        <h1><span class="neon-text">20-Year Masterplan:</span> From Dev → Tech Giant</h1>
+        <p class="author">Author: Claytone Curth</p>
+    </header>
+
+    <main>
+        <section class="principles">
+            <h2>
+                <span class="neon-text">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/tdrtiskw.json"
+                        trigger="loop"
+                        colors="primary:#39ff14"
+                        style="width:32px;height:32px;vertical-align:middle;">
+                    </lord-icon>
+                </span>
+                Key Principles for Success
+            </h2>
+            <div class="principles-grid">
+                <div class="card principle-card">
+                    <h3>SaaS Model</h3>
+                    <p>Recurring revenue is the foundation of giants like Salesforce and Microsoft 365.</p>
+                </div>
+                <div class="card principle-card">
+                    <h3>AI & Data</h3>
+                    <p>These are your unfair advantage in a competitive market.</p>
+                </div>
+                <div class="card principle-card">
+                    <h3>Africa-first</h3>
+                    <p>Focus on solving local problems like mobile money and offline apps.</p>
+                </div>
+                <div class="card principle-card">
+                    <h3>Scalability</h3>
+                    <p>Prioritize scalability over speed. Django and Python will keep you ahead.</p>
+                </div>
+                <div class="card principle-card">
+                    <h3>Branding & Trust</h3>
+                    <p>Schools and hospitals value reliability and a strong, trustworthy brand.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="masterplan">
+            <h2>
+                <span class="neon-text">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/ivhjpjsw.json"
+                        trigger="loop"
+                        colors="primary:#39ff14"
+                        style="width:32px;height:32px;vertical-align:middle;">
+                    </lord-icon>
+                </span>
+                The Masterplan
+            </h2>
+            <div class="card-container">
+                <div class="card masterplan-card">
+                    <h3 class="phase-title">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/ymrqtsej.json"
+                            trigger="loop"
+                            colors="primary:#39ff14"
+                            style="width:24px;height:24px;vertical-align:middle;">
+                        </lord-icon>
+                        Phase 1 (2025 – 2030)
+                    </h3>
+                    <h4 class="phase-subtitle">Foundation</h4>
+                    <div class="content">
+                        <ul>
+                            <li>
+                                <span class="point-title">
+                                    <lord-icon
+                                        src="https://cdn.lordicon.com/lupuorrc.json"
+                                        trigger="loop"
+                                        colors="primary:#39ff14"
+                                        style="width:20px;height:20px;vertical-align:middle;">
+                                    </lord-icon>
+                                    Goal:
+                                </span>
+                                Build the first product, gain market traction.
+                            </li>
+                            <li><span class="point-title">Technical Stack:</span>
+                                <ul>
+                                    <li>- Django (Python) → Backend</li>
+                                    <li>- React / Vue → Frontend</li>
+                                    <li>- PostgreSQL → Scalable DB</li>
+                                    <li>- Docker + GitHub Actions → CI/CD</li>
+                                    <li>- Hosting: DigitalOcean / AWS / Azure</li>
+                                </ul>
+                            </li>
+                            <li><span class="point-title">Product Strategy:</span> Build School Management SaaS ("EduCloud Africa").</li>
+                            <li><span class="point-title">Business Model:</span> SaaS subscription ($10–50/school/month).</li>
+                            <li><span class="point-title">Goals:</span> 500+ schools by 2030, National brand recognition.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card masterplan-card">
+                    <h3 class="phase-title">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/ymrqtsej.json"
+                            trigger="loop"
+                            colors="primary:#39ff14"
+                            style="width:24px;height:24px;vertical-align:middle;">
+                        </lord-icon>
+                        Phase 2 (2030 – 2035)
+                    </h3>
+                    <h4 class="phase-subtitle">Expansion</h4>
+                    <div class="content">
+                        <ul>
+                            <li>
+                                <span class="point-title">
+                                    <lord-icon
+                                        src="https://cdn.lordicon.com/lupuorrc.json"
+                                        trigger="loop"
+                                        colors="primary:#39ff14"
+                                        style="width:20px;height:20px;vertical-align:middle;">
+                                    </lord-icon>
+                                    Goal:
+                                </span>
+                                Expand to Healthcare + Pharmacy.
+                            </li>
+                            <li><span class="point-title">Technical Stack:</span>
+                                <ul>
+                                    <li>- Django + DRF (APIs)</li>
+                                    <li>- Microservices</li>
+                                    <li>- Kubernetes → Scalable hosting</li>
+                                    <li>- AI models (TensorFlow)</li>
+                                </ul>
+                            </li>
+                            <li><span class="point-title">Product Strategy:</span> Hospital & Pharmacy SaaS.</li>
+                            <li><span class="point-title">Business Model:</span> B2B SaaS, Government partnerships.</li>
+                            <li><span class="point-title">Goals:</span> Operate in 5+ African countries, Secure first VC funding ($5–20M).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card masterplan-card">
+                    <h3 class="phase-title">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/ymrqtsej.json"
+                            trigger="loop"
+                            colors="primary:#39ff14"
+                            style="width:24px;height:24px;vertical-align:middle;">
+                        </lord-icon>
+                        Phase 3 (2035 – 2040)
+                    </h3>
+                    <h4 class="phase-subtitle">Diversification</h4>
+                    <div class="content">
+                        <ul>
+                            <li>
+                                <span class="point-title">
+                                    <lord-icon
+                                        src="https://cdn.lordicon.com/lupuorrc.json"
+                                        trigger="loop"
+                                        colors="primary:#39ff14"
+                                        style="width:20px;height:20px;vertical-align:middle;">
+                                    </lord-icon>
+                                    Goal:
+                                </span>
+                                Become a super platform.
+                            </li>
+                            <li><span class="point-title">Technical Stack:</span>
+                                <ul>
+                                    <li>- AI-first (predictive analytics)</li>
+                                    <li>- Blockchain (records)</li>
+                                    <li>- APIs for third-party devs</li>
+                                </ul>
+                            </li>
+                            <li><span class="point-title">Product Strategy:</span> "Africa Cloud for Education & Health".</li>
+                            <li><span class="point-title">Business Model:</span> SaaS + Transaction fees + Marketplace.</li>
+                            <li><span class="point-title">Goals:</span> Expand to 10+ countries, 1M+ monthly users.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card masterplan-card">
+                    <h3 class="phase-title">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/ymrqtsej.json"
+                            trigger="loop"
+                            colors="primary:#39ff14"
+                            style="width:24px;height:24px;vertical-align:middle;">
+                        </lord-icon>
+                        Phase 4 (2040 – 2045)
+                    </h3>
+                    <h4 class="phase-subtitle">Global Impact</h4>
+                    <div class="content">
+                        <ul>
+                            <li>
+                                <span class="point-title">
+                                    <lord-icon
+                                        src="https://cdn.lordicon.com/lupuorrc.json"
+                                        trigger="loop"
+                                        colors="primary:#39ff14"
+                                        style="width:20px;height:20px;vertical-align:middle;">
+                                    </lord-icon>
+                                    Goal:
+                                </span>
+                                Become African Salesforce / Epic Systems.
+                            </li>
+                            <li><span class="point-title">Technical Stack:</span>
+                                <ul>
+                                    <li>- Global-scale cloud infra</li>
+                                    <li>- In-house AI research</li>
+                                    <li>- IoT integration</li>
+                                </ul>
+                            </li>
+                            <li><span class="point-title">Product Strategy:</span> Full SaaS Suite, IPO launch.</li>
+                            <li><span class="point-title">Business Model:</span> SaaS + AI services + Billion-dollar valuation.</li>
+                            <li><span class="point-title">Goals:</span> 20+ countries, 10M+ monthly users, $1B+ annual revenue.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Bible blockquote starts here -->
+        <blockquote class="bible-card">
+            <span class="bible-icon">
+                <lord-icon
+                    src="https://cdn.lordicon.com/lecprnjb.json"
+                    trigger="loop"
+                    colors="primary:#39ff14"
+                    style="width:32px;height:32px;vertical-align:middle;">
+                </lord-icon>
+            </span>
+            <strong>Isaya 58:6-11</strong><br>
+            <div class="bible-content">
+                “La! Mfungo ninaotaka mimi ni huu: Kuwafungulia waliofungwa bila haki, kuziondoa kamba za utumwa, kuwaachia 
+                <span class="bible-key">uhuru</span> wanaokandamizwa, na kuvunjilia mbali udhalimu wote!
+                <br><br>
+                Mfungo wa kweli ni kuwagawia wenye njaa chakula chako, kuwakaribisha nyumbani kwako maskini wasio na makao, kuvalisha wasio na nguo, bila kusahau kuwasaidia jamaa zenu.
+                <br><br>
+                Mkifanya hivyo mtangara kama <span class="bible-key">pambazuko</span>, mkiwa wagonjwa mtapona haraka. Matendo yenu mema yatawatangulia, nami nitawalindeni kutoka nyuma kwa <span class="bible-key">utukufu</span> wangu.
+                <br><br>
+                Ndipo mtakapoomba, nami <span class="bible-key">Mwenyezi-Mungu</span> nitawaitikia; mtalia kwa sauti kuomba msaada, nami nitajibu, ‘Niko hapa!’
+                <br><br>
+                Kama mkiiondoa dhuluma kati yenu, mkiacha kudharau wengine na kusema maovu, mkiwapa chakula kwa ukarimu wenye njaa, mkitosheleza mahitaji ya wenye dhiki, <span class="bible-key">mwanga</span> atawaangazia nyakati za giza, giza lenu litakuwa kama mchana.
+                <br><br>
+                Mimi <span class="bible-key">Mwenyezi-Mungu</span> nitawaongozeni daima, nitatosheleza mahitaji yenu wakati wa shida. Nitawaimarisha mwilini, nanyi mtakuwa kama <span class="bible-key">bustani</span> iliyomwagiliwa <span class="bible-key">maji</span>, kama <span class="bible-key">chemchemi</span> ya <span class="bible-key">maji</span> ambayo <span class="bible-key">maji</span> yake hayakauki kamwe.”
+            </div>
+        </blockquote>
+        <!-- Bible blockquote ends here -->
+    </main>
+    <footer class="premium-footer">
+        <div class="footer-glass">
+            <div class="footer-brand">
+                <span class="footer-logo">DCompany</span>
+                <span class="footer-tagline">IT Solutions</span>
+            </div>
+            <div class="footer-social">
+                <a href="#" title="Twitter" class="footer-icon">
+                    <lord-icon src="https://cdn.lordicon.com/udbbjmjh.json" trigger="hover" colors="primary:#39ff14" style="width:34px;height:34px"></lord-icon>
+                </a>
+                <a href="#" title="LinkedIn" class="footer-icon">
+                    <lord-icon src="https://cdn.lordicon.com/slkvcfos.json" trigger="hover" colors="primary:#00eaff" style="width:34px;height:34px"></lord-icon>
+                </a>
+                <a href="#" title="GitHub" class="footer-icon">
+                    <lord-icon src="https://cdn.lordicon.com/tdxypxgp.json" trigger="hover" colors="primary:#ff2fd6" style="width:34px;height:34px"></lord-icon>
+                </a>
+            </div>
+            <div class="footer-links">
+                <span class="footer-hashtag">#FIKRAHURU</span>
+                <span class="footer-hashtag">#MAAMUZIHURU</span>
+                <span class="footer-hashtag">#UHURUWAKIFEDHA</span>
+            </div>
+            <div class="footer-bottom" id="footerYear">
+            <!-- Year will be set by JS -->
+            </div>
+        </div>
+    </footer>
+    <script>
+    document.getElementById('footerYear').innerHTML =
+        '&copy; ' + new Date().getFullYear() + ' DCompany IT Solutions. All rights reserved.';
+    </script>
+</body>
+</html>
